@@ -1,6 +1,9 @@
 package com.springboot.di.app.springbootdi.models;
 
-public class Product {
+import io.vavr.control.Try;
+
+// Cloneable interfaz: Create objects twins but, the different instance  
+public class Product implements Cloneable{
     private Long id;
     private String name;
     private Long price;
@@ -45,5 +48,15 @@ public class Product {
             && newProduct.getPrice().equals(this.getPrice());
 
     }
-    
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public Object clone() {
+        return Try.of(() -> super.clone()).getOrElse(new Product(id, name, price));
+        // try {
+        //     return super.clone();
+        // } catch (CloneNotSupportedException c){
+        //     return new Product(id, name, price);
+        // }
+    }
 }
