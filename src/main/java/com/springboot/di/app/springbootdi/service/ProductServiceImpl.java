@@ -3,6 +3,7 @@ package com.springboot.di.app.springbootdi.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.springboot.di.app.springbootdi.models.Product;
@@ -13,10 +14,9 @@ public class ProductServiceImpl implements ProductService{
     
     private ProductRepository productRepository;
 
-    public ProductServiceImpl(ProductRepository productRepository){
+    public ProductServiceImpl(@Qualifier("productList") ProductRepository productRepository){
         this.productRepository = productRepository;
     }
-
 
     @Override
     public List<Product> findAll(){
