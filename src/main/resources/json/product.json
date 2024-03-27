@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "Monster 0 zugar",
+        "price": 290
+
+    },
+    {
+        "id": 2,
+        "name": "Perfume Dior",
+        "price": 300 
+    },
+    {
+        "id": 3,
+        "name": "Book Structure",
+        "price": 200
+    }
+]
